@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Primer Vue</title>
+</head>
+
+<body>
+  <!-- <div id="app">
+    Hola {{ nombre }}
+    <div v-if='mostrar'>
+      <h1>{{ titulo }}</h1>
+      <h2>{{ subtitulo }} </h2>
+    <div v-show='mostrar'>
+      <h3>Este es un show mostrar</h3>
+    </div>
+      <a :href="url" target="_blank">Ir a {{ pagina }}</a>
+    </div>
+    <div v-show='!mostrar'>
+      <h3>Este solo se muestra cuando mostrar es false</h3>
+    </div>
+  </div> -->
+
+<div id="app">
+  <h1> {{ titulo | uppercase}} </h1>
+  <h2>{{ subtitulo | lowercase }}</h2>
+  <p>Soy {{ nombre | capitalize }}</p>
+
+  <p>El contador esta en {{ contador }}</p>
+  <button @click = 'sumar' >Sumar</button>
+  <button @click = 'restar'>Restar</button>
+  <br>
+  <input type="text" name="nombre" placeholder="Ingresa tu nombre: " v-model="nombreObtenido">
+  <p>Tu nombre en mayuscula es: {{ nombreObtenido | uppercase }}</p>
+
+  <form v-on:submit.prevent = "submit" >
+    <h2>¿Que estoy estudiando?</h2>
+    <template v-for = 'curso in cursos'>
+        <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value">
+        <label  v-bind:for="curso.value">{{ curso.nombre }}</label>
+        <br> 
+    </template>
+   
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
