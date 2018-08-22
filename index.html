@@ -39,9 +39,10 @@
   <form v-on:submit.prevent = "submit" >
     <h2>¿Que estoy estudiando?</h2>
     <template v-for = 'curso in cursos'>
-        <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value">
+      <curso :curso="curso" v-on:checked ="selectCurso" ></curso>
+        <!-- <input v-model="cursosSeleccionados" type="checkbox" v-bind:id="curso.value" v-bind:value="curso.value">
         <label  v-bind:for="curso.value">{{ curso.nombre }}</label>
-        <br> 
+        <br>  -->
     </template>
    
     <button type="submit">Enviar</button>
